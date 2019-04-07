@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro Endereço</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+<script type="text/javascript" th:src="@{/js/lib/jquery-3.3.1.js}"></script>
+
+<form action="#" th-action="@{/address}" th-object="${address}" method="post">
+    <fieldset>
+        <legend>Cadastro de Endereço</legend>
+
+        <p>
+            CEP: <input type="text" th:field="*{address.zipCode}" />
+        </p>
+
+        <p>
+            Logradouro: <input type="text" th:field="*{address.address}" required/>
+        </p>
+
+        <p>
+            Número: <input type="text" th:field="*{address.number}" required/>
+        </p>
+
+        <p>
+            Complemento: <input type="text" th:field="*{address.complement}"/>
+        </p>
+
+        <p>
+            Bairro: <input type="text" th:field="*{address.neighborhood}" required/>
+        </p>
+
+        <p>
+            Cidade: <input type="text" th:field="*{address.city}" required/>
+        </p>
+
+        <p>
+            Estado: <select th:field="*{address.state}" required>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+            </select>
+        </p>
+
+        <p>
+            <input type="submit" value="Cadastrar" />
+        </p>
+    </fieldset>
+</form>
+
+<script type="text/javascript">
+$("#zipCode").focusout(function(){
+            var zipCode = $(this).val();
+			$.ajax({
+				url: 'http://localhost:8080/zipCode/' + zipCode,
+				dataType: 'json',
+				success: function(response){
+					$("#address").val(response.address);
+					$("#neighborhood").val(response.neighborhood);
+					$("#city").val(response.city);
+					$("#state").val(response.state);
+
+					$("#number").focus();
+				}
+			});
+		});
+</script>
+</body>
+</html>
