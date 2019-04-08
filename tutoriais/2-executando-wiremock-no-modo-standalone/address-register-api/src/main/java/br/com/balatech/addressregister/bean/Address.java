@@ -1,7 +1,5 @@
 package br.com.balatech.addressregister.bean;
 
-import br.com.balatech.addressregister.entity.AddressEntity;
-
 public class Address {
 
     private String zipCode;
@@ -68,7 +66,4 @@ public class Address {
         this.city = city;
     }
 
-    public AddressEntity getAddressEntity() {
-        return new AddressEntity(zipCode, address, number, complement, neighborhood, state, city);
-    }
 }

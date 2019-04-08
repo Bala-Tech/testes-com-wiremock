@@ -26,11 +26,7 @@ public class AddressController {
 
     @PostMapping
     public String saveNewAddress(@ModelAttribute("address") Address address) {
-
         LOG.info("nova requisição para cadastro de endereço");
-
-        addressService.saveNewAddress(address);
-
         return "list-address";
     }
 }
