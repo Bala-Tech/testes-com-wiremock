@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Endereços</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th> Logradouro </th>
+        <th> Número </th>
+        <th> Bairro </th>
+        <th> Cidade </th>
+        <th> Estado </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><span th:text="${address.address}"> Logradouro </span></td>
+        <td><span th:text="${address.number}"> Número </span></td>
+        <td><span th:text="${address.neighborhood}"> Bairro </span></td>
+        <td><span th:text="${address.city}"> Cidade </span></td>
+        <td><span th:text="${address.state}"> Estado </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

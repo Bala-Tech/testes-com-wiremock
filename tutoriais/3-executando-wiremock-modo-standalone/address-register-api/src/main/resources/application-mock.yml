@@ -1,0 +1,3 @@
+service:
+  cep:
+    endpoint: http://localhost:8082/ws/

@@ -1,0 +1,65 @@
+{
+    "mappings": [
+        {
+            "request": {
+                "method": "GET",
+                "urlPattern": "/ws/([0-9]*)/json"
+            },
+            "response": {
+                "status": 200,
+                "jsonBody": {
+                    "zipCode" : "08010-100",
+                    "address" : "Rua Daniel Bernardo",
+                    "complement" : "",
+                    "neighborhood" : "São Miguel Paulista",
+                    "state" : "SP",
+                    "city" : "São Paulo"
+                },
+                "headers": {
+                    "Content-Type": "application/json"
+                }
+            }
+        },
+        {
+            "request": {
+                "method": "GET",
+                "urlPattern": "/ws/01010100/json"
+            },
+            "response": {
+                "status": 200,
+                "jsonBody": {
+                    "zipCode" : "01010-100",
+                    "address" : "Rua XPTO",
+                    "complement" : "",
+                    "neighborhood" : "São ABC",
+                    "state" : "SP",
+                    "city" : "São Paulo"
+                },
+                "headers": {
+                    "Content-Type": "application/json"
+                }
+            }
+        },
+        {
+            "request": {
+                "method": "GET",
+                "url": "/ws/12345678/json"
+            },
+            "response": {
+                "status": 200,
+                "fixedDelayMilliseconds": 2000,
+                "body": "demorou mas chegou"
+            }
+        },
+        {
+            "request": {
+                "method": "GET",
+                "url": "/ws/x/json"
+            },
+            "response": {
+                "status": 403,
+                "body": "Forbidden"
+            }
+        }
+    ]
+}
